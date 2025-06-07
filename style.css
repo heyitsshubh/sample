@@ -1,0 +1,159 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+     
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-family: 'Georgia', serif;
+      background-color: #000;
+    }
+     
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background-image: url('./image.png');       
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+ .top-glow-image {
+  position: absolute;
+  top: -330px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 5; 
+  pointer-events: none;
+  opacity: 0; 
+  background-image: url('./Frame 97.png');
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-size: 100% 100%; 
+  background-position: center top;
+  animation: fadeInGlow 1.5s ease-in 1.5s forwards; 
+  mix-blend-mode: screen; 
+}
+
+    .triangle-beam {
+      position: absolute;
+      top: 15%;
+      left: 50%;             
+      width: 50%;             
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0;
+      animation: fadeInTriangle 5s ease-in-out forwards;
+   background: radial-gradient(
+    ellipse 50% 100% at 50% 0%, 
+    rgba(255, 255, 0, 0.8) 0%,  
+    rgba(255, 255, 0, 0.5) 30%, 
+    rgba(255, 255, 0, 0.2) 70%, 
+    rgba(255, 255, 0, 0.1) 90%, 
+    rgba(255, 255, 0, 0) 100%   
+  );
+      filter: blur(30px);
+    transform: translateX(-50%);
+    }
+     
+    .hero-text {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 15;
+      color: #FFD700;
+      text-align: center;
+      padding: 0 20px;
+      opacity: 0;
+      animation:    
+        fadeInText 1.5s ease-in-out forwards,
+        yellowToWhite 1s 3s forwards;
+    }
+    
+    .hero-text h1 {
+      font-family: 'Marcellus SC', serif;
+      font-weight: 400;
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      white-space: nowrap;
+    }
+     
+    .hero-text p {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      line-height: 100%;
+      text-align: center;
+    }
+
+    
+   @keyframes fadeInGlow {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px); 
+  }
+  100% {
+    opacity: 0.6; 
+    transform: translateY(0); 
+  }
+}
+
+    @keyframes gentlePulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.8;
+      }
+    }
+     
+    @keyframes fadeInText {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+     
+    @keyframes fadeInTriangle {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+
+    @keyframes yellowToWhite {
+      from {
+        color: #FFD700;   
+      }
+      to {
+        color: #fff;      
+      }
+    }
+         
+    @media (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 2rem;
+        white-space: normal;
+      }
+       
+      .hero-text p {
+        font-size: 1rem;
+      }
+      
+      .triangle-beam {
+        width: 90%;
+      }
+    }
